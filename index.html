@@ -1,0 +1,49 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemoryMatch Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">MemoryMatch</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#" id="nav-play">Play</a></li>
+          <li class="nav-item"><a class="nav-link" href="leaderboard.html">Leaderboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="settings.html">Settings</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="nav-login">Login/Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="text-center py-5">
+    <h1 class="display-4">Welcome to MemoryMatch!</h1>
+    <p class="lead">Multi-stage memory challenge with themes, avatars, and social sharing.</p>
+    <button id="btn-start" class="btn btn-success btn-lg">Start/Resume Game</button>
+  </header>
+  <section class="text-center">
+    <button class="btn btn-primary me-2" id="share-fb">Share on Facebook</button>
+    <button class="btn btn-info me-2" id="share-tw">Share on Twitter</button>
+    <button class="btn btn-success" id="share-wa">Share on WhatsApp</button>
+  </section>
+  <footer class="text-center mt-5 mb-3">© 2025 MemoryMatch</footer>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/share.js"></script>
+  <script>
+    document.getElementById('btn-start').onclick = ()=> location.href='game.html';
+    document.getElementById('nav-play').onclick = ()=> location.href='game.html';
+    document.getElementById('nav-login').onclick = ()=> location.href='login.html';
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

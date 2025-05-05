@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin - MemoryMatch</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+  <div class="container-fluid py-4">
+    <h2 class="mb-4">Admin Dashboard</h2>
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="list-group">
+          <li class="list-group-item bg-secondary text-light" id="tab-users">Manage Users</li>
+          <li class="list-group-item bg-secondary text-light" id="tab-scores">View Scores</li>
+          <li class="list-group-item bg-secondary text-light" id="tab-settings">Game Settings</li>
+        </ul>
+      </div>
+      <div class="col-md-9" id="admin-content"></div>
+    </div>
+  </div>
+  <script src="assets/js/webhook.js"></script>
+  <script>
+    // load tabs
+    const content = document.getElementById('admin-content');
+    document.getElementById('tab-users').onclick = () => {
+      const users = JSON.parse(localStorage.getItem('mm_users')||'[]');
+      content.innerHTML = '<h3>Users</h3><pre>'+JSON.stringify(users,null,2)+'</pre>';
+    };
+    document.getElementById('tab-scores').onclick = () => {
+      const scores = JSON.parse(localStorage.getItem('mm_scores')||'[]');
+      content.innerHTML = '<h3>Scores</h3><pre>'+JSON.stringify(scores,null,2)+'</pre>';
+    };
+    document.getElementById('tab-settings').onclick = () => {
+      const s = JSON.parse(localStorage.getItem('mm_settings')||'{}');
+      content.innerHTML = '<h3>Settings</h3><pre>'+JSON.stringify(s,null,2)+'</pre>';
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leaderboard - MemoryMatch</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+  <div class="container py-4">
+    <h2 class="text-center mb-3">Leaderboard</h2>
+    <table class="table table-dark table-striped">
+      <thead><tr><th>#</th><th>User</th><th>Stage</th><th>Time(s)</th><th>Clicks</th></tr></thead>
+      <tbody id="lb-top"></tbody>
+      <tbody id="lb-rest" style="display:none"></tbody>
+    </table>
+    <button class="btn btn-secondary" id="show-more">Show More</button>
+  </div>
+  <script src="assets/js/webhook.js"></script>
+  <script src="assets/js/leaderboard.js"></script>
+  <script>
+    document.getElementById('show-more').onclick = ()=>{
+      document.getElementById('lb-rest').style.display = '';
+      document.getElementById('show-more').style.display = 'none';
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

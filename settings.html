@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings - MemoryMatch</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+  <div class="container py-4">
+    <h2 class="mb-4">Settings</h2>
+    <form id="settings-form">
+      <div class="mb-3">
+        <label class="form-label">Upload Avatar URL</label>
+        <input type="text" id="avatar-url" class="form-control" placeholder="Image URL">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Icon Theme</label>
+        <select id="icon-theme" class="form-select">
+          <option value="classic">Classic</option>
+          <option value="minimal">Minimal</option>
+          <option value="neon">Neon</option>
+          <option value="pastel">Pastel</option>
+          <option value="retro">Retro</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Hint Idle (ms)</label>
+        <input type="number" id="hintIdle" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Hint Duration (ms)</label>
+        <input type="number" id="hintDuration" class="form-control">
+      </div>
+      <button class="btn btn-primary">Save Settings</button>
+    </form>
+  </div>
+  <script src="assets/js/settings.js"></script>
+  <script>
+    // load existing
+    const cur = JSON.parse(localStorage.getItem('mm_current'));
+    const s = JSON.parse(localStorage.getItem('mm_settings')||'{}');
+    document.getElementById('avatar-url').value = cur.avatar || '';
+    document.getElementById('icon-theme').value = s.iconTheme||'classic';
+    document.getElementById('hintIdle').value = s.hintIdle||15000;
+    document.getElementById('hintDuration').value = s.hintDuration||1000;
+
+    document.getElementById('avatar-url').onchange = e=>{
+      cur.avatar=e.target.value; localStorage.setItem('mm_current',JSON.stringify(cur));
+    };
+    // settings.js handles the rest
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
